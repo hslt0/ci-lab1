@@ -30,7 +30,7 @@ def plot_profile(
         item.accumulated_depth_m if accumulated else item.depth_m
         for item in route_depths
     ]
-    scale_limit = max(maximum_depth, max(values, default=0.0))
+    scale_limit = maximum_depth
 
     canvas.create_line(left, top, left, bottom, fill="gray")
     canvas.create_line(left, bottom, right, bottom, fill="gray")
@@ -41,7 +41,7 @@ def plot_profile(
         x = left
         if len(values) > 1:
             x = left + round(index * plot_width / (len(values) - 1))
-        y = bottom - round(min(value / scale_limit, 1.0) * plot_height)
+        y = top + round(min(value / scale_limit, 1.0) * plot_height)
         points.append((x, y))
 
     for x, y in points:
