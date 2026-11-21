@@ -8,8 +8,8 @@ def shift_to_depth_m(
     sample_rate: float,
     sound_speed: float,
 ) -> float:
-    one_way_time_s = shift / sample_rate
-    return sound_speed * one_way_time_s / 2
+    both_way_time_s = shift / sample_rate
+    return sound_speed * both_way_time_s / 2
 
 
 def maximum_depth_m(
