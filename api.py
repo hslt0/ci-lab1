@@ -65,7 +65,7 @@ async def get_signal(step: int, response: Response) -> list[float]:
     response.headers["Pragma"] = "no-cache"
 
     true_shift = 80 + (step * 7 % 240)
-    rng = random.Random(10_000 + step)
+    rng = random.Random()
     signal = [rng.uniform(-0.08, 0.08) for _ in range(SIGNAL_LENGTH)]
 
     for pulse_index, pulse_sample in enumerate(PULSE):
