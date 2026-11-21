@@ -40,9 +40,13 @@ class EchoSounderClient:
             or config.sample_rate <= 0
             or config.sound_speed <= 0
             or config.carrier_freq <= 0
-            or config.carrier_freq >= config.sample_rate / 2
         ):
             raise RuntimeError("Параметри конфігурації повинні бути додатними")
+        if config.carrier_freq >= config.sample_rate / 2:
+            raise RuntimeError(
+                f"carrier_freq = {config.carrier_freq} Гц має бути менше "
+                f"sample_rate / 2 = {config.sample_rate / 2} Гц"
+            )
         return config
 
     def get_pulse(self) -> list[float]:
