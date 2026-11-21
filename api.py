@@ -66,7 +66,7 @@ async def get_signal(step: int, response: Response) -> list[float]:
 
     true_shift = 80 + (step * 7 % 240)
     rng = random.Random()
-    signal = [rng.uniform(-0.08, 0.08) for _ in range(SIGNAL_LENGTH)]
+    signal = [rng.uniform(-2, 2) for _ in range(SIGNAL_LENGTH)]
 
     for pulse_index, pulse_sample in enumerate(PULSE):
         signal_index = true_shift + pulse_index
