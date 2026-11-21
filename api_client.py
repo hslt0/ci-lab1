@@ -40,6 +40,7 @@ class EchoSounderClient:
             or config.sample_rate <= 0
             or config.sound_speed <= 0
             or config.carrier_freq <= 0
+            or config.carrier_freq >= config.sample_rate / 2
         ):
             raise RuntimeError("Параметри конфігурації повинні бути додатними")
         return config
